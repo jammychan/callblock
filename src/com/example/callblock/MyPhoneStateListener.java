@@ -2,9 +2,12 @@ package com.example.callblock;
 
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 class MyPhoneStateListener extends PhoneStateListener{ 
-    @Override 
+    private static final String TAG = "MyPhoneStateListener";
+
+	@Override 
     public void onCallStateChanged(int state, String incomingNumber) { 
     	String result = "";
         switch (state) { 
@@ -19,6 +22,7 @@ class MyPhoneStateListener extends PhoneStateListener{
         default: 
             break; 
         } 
+        Log.i(TAG, "result is " + result);
      super.onCallStateChanged(state, incomingNumber); 
     } 
 }
