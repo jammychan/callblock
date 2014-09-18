@@ -30,6 +30,6 @@ public class MainActivity extends ListActivity {
         //获取电话服务
         TelephonyManager manager = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE); 
         // 设置PhoneStateListener中的listen_call_state状态进行监听  
-        manager.listen(new MyPhoneStateListener(), PhoneStateListener.LISTEN_CALL_STATE); 
+        manager.listen(new MyPhoneStateListener(this), PhoneStateListener.LISTEN_CALL_STATE); 
     }
 }

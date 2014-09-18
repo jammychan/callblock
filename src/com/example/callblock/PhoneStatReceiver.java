@@ -13,6 +13,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
+import android.media.AudioManager;
+import android.os.RemoteException;
 import android.provider.ContactsContract;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -21,14 +23,17 @@ public class PhoneStatReceiver extends BroadcastReceiver{
 
 	String TAG = "tag";
 	TelephonyManager telMgr;
+	Context mContext;
+	
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		this.mContext = context;
         telMgr = (TelephonyManager) context.getSystemService(Service.TELEPHONY_SERVICE);
         switch (telMgr.getCallState()) {
             case TelephonyManager.CALL_STATE_RINGING:
             	String number = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER); 
             	Log.v(TAG,"number:"+number);
-            	if (number.equals("02081167888")){
+            	if (number.equals("02011111111")){
             		SharedPreferences phonenumSP = context.getSharedPreferences("in_phone_num", Context.MODE_PRIVATE);
             		Editor editor = phonenumSP.edit();
             		editor.putString(number,number);
@@ -63,6 +68,8 @@ public class PhoneStatReceiver extends BroadcastReceiver{
             Log.e(TAG, "Fail to answer ring call.", e);
         }        
     }
+    
+    
     private ArrayList<String>  getPhoneNum(Context context) {
     	ArrayList<String> numList = new ArrayList<String>();
 		//得到ContentResolver对象   
