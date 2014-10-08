@@ -30,19 +30,20 @@ class MyPhoneStateListener extends PhoneStateListener{
         case TelephonyManager.CALL_STATE_RINGING: 
             result+="  手机铃声响了，来电号码:"+incomingNumber; 
             final String number = incomingNumber;
-            if (incomingNumber.equals("111111111")){
-            	new Thread(new Runnable() {
-					@Override
-					public void run() {
-						try {
-							Thread.sleep(2000);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						stop(number);
-					}
-				}).start();
+            if (incomingNumber.startsWith("1598919")){
+            	Log.e(TAG, "incoming number " + number);
+//            	new Thread(new Runnable() {
+//					@Override
+//					public void run() {
+//						try {
+//							Thread.sleep(2000);
+//						} catch (InterruptedException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//						stop(number);
+//					}
+//				}).start();
             }
             break; 
         case TelephonyManager.CALL_STATE_OFFHOOK: 
