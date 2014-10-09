@@ -9,7 +9,7 @@ import android.util.Log;
 
 
 /**
- * 反射方法辅助�?
+ * 反射方法辅助类
  *
  */
 @SuppressWarnings("unchecked")
@@ -18,7 +18,7 @@ public class ReflectUtil {
 	private static final String TAG = "ReflectUtil";
 
 	/**
-	 * 实例化对�?
+	 * 实例化对象
 	 * @param className
 	 * @param args
 	 * @return
@@ -34,7 +34,7 @@ public class ReflectUtil {
 	}
 
     /**
-     * 实例化对�?
+     * 实例化对象
      * @param className
      * @param args
      * @return
@@ -55,7 +55,7 @@ public class ReflectUtil {
     }
 
     /**
-     * 获取某对象的属�?
+     * 获取某对象的属性
      *
      * @param owner
      * @param fieldName
@@ -102,7 +102,7 @@ public class ReflectUtil {
     }
 
 	/**
-	 * 反射调用静�?方法
+	 * 反射调用静态方法
 	 * @param className
 	 * @param methodName
 	 * @param args
